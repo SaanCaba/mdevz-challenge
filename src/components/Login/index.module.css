@@ -1,0 +1,25 @@
+.contLoginForm {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.formLogin {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.input {
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.input:focus {
+	outline: none;
+}

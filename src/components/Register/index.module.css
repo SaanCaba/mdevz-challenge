@@ -1,0 +1,50 @@
+.contForm {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.formRegistro {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+}
+
+.formRegistro input:focus {
+	outline: none;
+}
+
+.contInput label {
+	font-weight: 700;
+}
+
+.inputRegistro {
+	min-width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.contSelect label {
+	margin-right: 10px;
+}
+
+.contSelect {
+	width: 100%;
+}
+
+.selectCountrys {
+	width: 100%;
+	padding: 5px;
+	border: none;
+	border-bottom: 1px solid black;
+}
+
+.selectCountrie:focus {
+	outline: none;
+}
