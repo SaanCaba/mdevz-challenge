@@ -29,7 +29,7 @@ const Register: React.FC = () => {
 	): Promise<any> => {
 		e.preventDefault();
 		try {
-			await auth.signup(user.email, user.password);
+			await auth.signup(user);
 		} catch (error) {
 			console.log(error);
 		}
@@ -44,18 +44,44 @@ const Register: React.FC = () => {
 				className={styles.formRegistro}>
 				<div className={styles.contInput}>
 					<label>First Name:</label>
-					<input className={styles.inputRegistro} type='text' />
+					<input
+						onChange={(e) => {
+							handleChange(e);
+						}}
+						className={styles.inputRegistro}
+						type='text'
+					/>
 				</div>
 				<div className={styles.contInput}>
 					<label>Last Name:</label>
-					<input className={styles.inputRegistro} type='text' />
+					<input
+						onChange={(e) => {
+							handleChange(e);
+						}}
+						className={styles.inputRegistro}
+						type='text'
+					/>
 				</div>
 				<div className={styles.contSelect}>
 					<label>Country: </label>
-					<select className={styles.selectCountrys}>
-						<option>Countrie</option>
+					<select
+						onChange={(e) => {
+							if (e.target.value === 'Countrys') {
+								return;
+							}
+							setUser({
+								...user,
+								country: e.target.value,
+							});
+						}}
+						className={styles.selectCountrys}>
+						<option>Countrys</option>
 						{countrys.map((c, i) => {
-							return <option key={c.id}>{c.name}</option>;
+							return (
+								<option key={c.id} value={c.name}>
+									{c.name}
+								</option>
+							);
 						})}
 					</select>
 				</div>

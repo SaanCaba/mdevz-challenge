@@ -3,14 +3,18 @@ import {
 	onAuthStateChanged,
 	signInWithEmailAndPassword,
 	signOut,
+	type UserCredential,
 	type User,
 } from 'firebase/auth';
+import { addDoc, collection, type DocumentData } from 'firebase/firestore';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../firebase.config';
-import { type AuthUser } from '../models/AuthUser.model';
-
+import { auth, db } from '../firebase.config';
+import { type UserRegisterData, type AuthUser } from '../models/AuthUser.model';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { getUserInfo } from '../utils/getUserInfo';
 export const Context = createContext<AuthUser>({
-	user: null,
+	userSession: null,
+	userProfileData: null,
 	signup() {},
 	login() {},
 	logout() {},
@@ -26,19 +30,30 @@ interface Props {
 }
 
 export function AuthProvider({ children }: Props): any {
-	// const user = {
-	// 	login: true,
-	// };
-	const [user, setUser] = useState<null | User>(null);
-	const signup = async (email: string, password: string): Promise<void> => {
-		console.log('123');
+	const [userSession, setUserSession] = useState<null | User>(null);
+	const [userProfileData, setUserProfileData] = useState<null | DocumentData>(
+		null
+	);
+	const signup = async (user: UserRegisterData): Promise<void> => {
 		// en response.proactiveRefresh.user.uid está el id del usuario guardado en firebase.
-		const response: any = await createUserWithEmailAndPassword(
-			auth,
-			email,
-			password
-		);
-		console.log(response);
+		try {
+			const response: UserCredential = await createUserWithEmailAndPassword(
+				auth,
+				user.email,
+				user.password
+			);
+			console.log(response);
+			const userDb = {
+				user_id: response.user.uid,
+				country: user.country,
+				first_name: user.firstName,
+				last_name: user.lastName,
+			};
+			const colRef = collection(db, 'users');
+			await addDoc(colRef, userDb);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	const login = async (email: string, password: string): Promise<any> => {
@@ -52,12 +67,20 @@ export function AuthProvider({ children }: Props): any {
 
 	useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {
-			setUser(currentUser);
+			if (currentUser === null) return;
+			void (async () => {
+				setUserSession(currentUser);
+				(await getUserInfo(currentUser?.uid)).forEach((doc) => {
+					console.log(doc.data());
+					setUserProfileData(doc.data());
+				});
+			})();
 		});
 	}, []);
 
 	return (
-		<Context.Provider value={{ user, signup, login, logout }}>
+		<Context.Provider
+			value={{ userSession, userProfileData, signup, login, logout }}>
 			{children}
 		</Context.Provider>
 	);
