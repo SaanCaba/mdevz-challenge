@@ -1,0 +1,46 @@
+.carousel {
+	cursor: grab;
+	overflow: hidden;
+}
+
+.innerCarousel {
+	display: flex;
+}
+
+.contItemSlider {
+	min-height: 25px;
+	min-width: 15%;
+	padding: 15px;
+}
+
+.contCenterLogo {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	pointer-events: none;
+}
+
+.contLogo {
+	border-radius: 50%;
+	border: 1px solid black;
+	height: 40px;
+	width: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(226, 191, 191);
+}
+
+.contNameItem {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	pointer-events: none;
+	margin-top: 5px;
+}
+
+.nameItem {
+	font-size: 9px;
+	word-break: break-all;
+	font-weight: bold;
+}

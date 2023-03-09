@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuth } from '../../context/authContext';
 
 import styles from './index.module.css';
+import Slider from './Slider';
 import Statistics from './Statistics';
 
 const Profile: React.FC = () => {
@@ -36,7 +37,9 @@ const Profile: React.FC = () => {
 				<section className={styles.sectionStatistics}>
 					<Statistics />
 				</section>
-				<section></section>
+				<section>
+					<Slider />
+				</section>
 			</main>
 		</div>
 	);
