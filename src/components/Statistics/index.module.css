@@ -14,11 +14,16 @@
 
 .contStatisticsInfo {
 	margin-left: 15px;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	gap: 5px;
 	word-break: break-all;
 }
 
 .title {
 	font-weight: bold;
+	font-size: 15px;
+}
+
+.content {
+	font-size: 12px;
 }

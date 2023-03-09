@@ -12,7 +12,11 @@
 .backHomeProfile {
 	position: absolute;
 	left: 20px;
-	top: 20px;
+	top: 15px;
+	height: min-content;
+	padding: 5px;
+	border-radius: 10px;
+	background-color: rgb(239, 239, 239);
 }
 
 .headerProfile span {
@@ -22,7 +26,6 @@
 .mainContentProfile {
 	display: flex;
 	flex-direction: column;
-	background-color: green;
 }
 
 .sectionProfileInfo {
@@ -35,6 +38,7 @@
 .sectionProfileInfo img {
 	width: 100px;
 	height: 100px;
+	object-fit: cover;
 	border-radius: 50%;
 	border: 3px solid rgba(244, 185, 91, 0.866);
 	border-left-color: transparent;
@@ -50,9 +54,35 @@
 	gap: 10px;
 }
 
+.sectionStatistics {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
+}
+
+.sectionFilterIrlas {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.sectionFilterIrlas button {
+	margin: 5px;
+	width: 30%;
+	padding: 10px;
+	border-radius: 15px;
+	border: none;
+	background-color: #3b82f6;
+	font-weight: bold;
+	color: white;
+}
+
 .btnFollow {
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	border: none;
 	border-radius: 10px;
 	color: white;
@@ -63,8 +93,8 @@
 }
 
 .btnTracked {
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	border: none;
 	border-radius: 10px;
 	color: white;
@@ -74,11 +104,25 @@
 	font-weight: bold;
 }
 
-.sectionStatistics {
+.contFlexBtnFollow {
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
 	justify-content: center;
-	gap: 10px;
-	width: 100%;
+}
+
+.followText {
+	display: flex;
+	align-items: center;
+	margin-left: 5px;
+	font-size: smaller;
+}
+
+.infoProfileText {
+	margin-left: 5px;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.fullName {
+	font-weight: bold;
+	font-size: 17px;
 }

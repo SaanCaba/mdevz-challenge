@@ -1,0 +1,59 @@
+.headerCategory {
+	display: flex;
+	justify-content: space-between;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.seeAll {
+	font-size: 14px;
+	color: rgb(69, 68, 68);
+}
+
+.contMainMedals {
+	display: flex;
+	justify-content: space-between;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.contMedal {
+	background-color: rgb(239, 239, 239);
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+	border-radius: 10px;
+}
+
+.contImg {
+	display: flex;
+	justify-content: center;
+	background-color: white;
+}
+
+.img {
+	width: 89px;
+}
+
+.irlaName {
+	font-weight: bold;
+}
+
+.contInfoMedal {
+	padding: 10px;
+	display: grid;
+	gap: 5px;
+	word-break: break-all;
+}
+
+.contInfoMedal span {
+	font-size: 11px;
+}
+
+.xpText {
+	font-weight: bold;
+}

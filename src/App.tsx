@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Login from './components/Login';
+import Login from './screens/Login';
 import Logout from './components/Logout';
-import Profile from './components/Profile';
+import Profile from './screens/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
-import Register from './components/Register';
+import Register from './screens/Register';
 
 const App: React.FC = () => {
 	return (
