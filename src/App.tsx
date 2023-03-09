@@ -10,9 +10,16 @@ import Register from './components/Register';
 const App: React.FC = () => {
 	return (
 		<>
-			<Logout />
 			<Routes>
-				<Route path='/login' element={<Login />} />
+				<Route
+					path='/login'
+					element={
+						<>
+							<Logout />
+							<Login />
+						</>
+					}
+				/>
 				<Route path='/register' element={<Register />} />
 
 				<Route

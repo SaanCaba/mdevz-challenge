@@ -83,7 +83,6 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 				email,
 				password
 			);
-			// console.log(userCredentials.user.getIdToken());
 			const acessToken = await userCredentials.user.getIdToken();
 			localStorage.setItem('user_token', acessToken);
 		} catch (error: any) {

@@ -1,0 +1,84 @@
+.contProfileView {
+	height: 100%;
+}
+
+.headerProfile {
+	display: flex;
+	justify-content: center;
+	height: min-content;
+	margin-bottom: 20px;
+}
+
+.backHomeProfile {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+
+.headerProfile span {
+	margin-top: 20px;
+}
+
+.mainContentProfile {
+	display: flex;
+	flex-direction: column;
+	background-color: green;
+}
+
+.sectionProfileInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.sectionProfileInfo img {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: 3px solid rgba(244, 185, 91, 0.866);
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-spacing: 10px;
+}
+
+.sectionButtons {
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+	gap: 10px;
+}
+
+.btnFollow {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #11b981;
+	width: 40%;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.btnTracked {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #191919;
+	width: 40%;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.sectionStatistics {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
+}
