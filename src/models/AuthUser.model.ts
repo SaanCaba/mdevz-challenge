@@ -7,7 +7,7 @@ export interface AuthUser{
     login: (email:string, password:string) => Promise<string | void> | void
     logout:() => Promise<void> | void
     userProfileData: DocumentData | null
-    loading:boolean
+    loading: boolean
 }
 
 export interface UserRegisterData{

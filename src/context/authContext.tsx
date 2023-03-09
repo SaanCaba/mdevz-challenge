@@ -36,12 +36,12 @@ interface Props {
 	children: React.ReactNode;
 }
 
-export function AuthProvider({ children }: Props): any {
+export function AuthProvider({ children }: Props): React.ReactElement {
 	const [userSession, setUserSession] = useState<null | User>(null);
 	const [userProfileData, setUserProfileData] = useState<null | DocumentData>(
 		null
 	);
-	const [loading, setLoading] = useState<boolean>(false);
+	const [loading, setLoading] = useState<boolean>(true);
 	const signup = async (user: UserRegisterData): Promise<void | string> => {
 		// en response.proactiveRefresh.user.uid está el id del usuario guardado en firebase.
 		try {
@@ -78,7 +78,14 @@ export function AuthProvider({ children }: Props): any {
 		password: string
 	): Promise<void | string> => {
 		try {
-			await signInWithEmailAndPassword(auth, email, password);
+			const userCredentials: UserCredential = await signInWithEmailAndPassword(
+				auth,
+				email,
+				password
+			);
+			// console.log(userCredentials.user.getIdToken());
+			const acessToken = await userCredentials.user.getIdToken();
+			localStorage.setItem('user_token', acessToken);
 		} catch (error: any) {
 			const errMessage = convertMessageLogin(error.code);
 			return errMessage;
@@ -87,19 +94,22 @@ export function AuthProvider({ children }: Props): any {
 
 	const logout = async (): Promise<any> => {
 		await signOut(auth);
+		localStorage.removeItem('user_token');
 	};
 
 	useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {
-			if (currentUser === null) return;
-			setLoading(true);
+			if (currentUser === null) {
+				setLoading(false);
+				return;
+			}
 			void (async () => {
 				setUserSession(currentUser);
 				(await getUserInfo(currentUser?.uid)).forEach((doc) => {
 					setUserProfileData(doc.data());
+					setLoading(false);
 				});
 			})();
-			setLoading(false);
 		});
 	}, []);
 

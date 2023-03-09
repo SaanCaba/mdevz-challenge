@@ -23,5 +23,6 @@ module.exports = {
 	rules: {
 		'@typescript-eslint/no-invalid-void-type': 'off',
 		'@typescript-eslint/no-confusing-void-expression': 'off',
+		'@typescript-eslint/no-unnecessary-boolean-literal-compare': 'warn',
 	},
 };
