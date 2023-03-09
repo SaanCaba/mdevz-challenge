@@ -20,5 +20,8 @@ module.exports = {
 		project: ['./tsconfig.json'],
 	},
 	plugins: ['react'],
-	rules: {},
+	rules: {
+		'@typescript-eslint/no-invalid-void-type': 'off',
+		'@typescript-eslint/no-confusing-void-expression': 'off',
+	},
 };

@@ -3,10 +3,11 @@ import { type DocumentData } from "firebase/firestore"
 
 export interface AuthUser{
     userSession:User | null,
-    signup: (user:UserRegisterData) => any
-    login: (email:string, password:string) => Promise<void> | void
+    signup: (user:UserRegisterData) => Promise<string | void> | void
+    login: (email:string, password:string) => Promise<string | void> | void
     logout:() => Promise<void> | void
     userProfileData: DocumentData | null
+    loading:boolean
 }
 
 export interface UserRegisterData{

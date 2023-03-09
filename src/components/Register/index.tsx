@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { useAuth } from '../../context/authContext';
 import type CountryMapped from '../../models/Country.model';
 import { getCountry } from '../../utils/getCountrys';
@@ -6,8 +8,10 @@ import styles from './index.module.css';
 
 const Register: React.FC = () => {
 	const [countrys] = useState<CountryMapped[]>(getCountry());
-
+	const [loading, setLoading] = useState<boolean>(false);
 	const auth = useAuth();
+
+	const navigate = useNavigate();
 
 	const [user, setUser] = useState({
 		email: '',
@@ -29,9 +33,20 @@ const Register: React.FC = () => {
 	): Promise<any> => {
 		e.preventDefault();
 		try {
-			await auth.signup(user);
-		} catch (error) {
-			console.log(error);
+			setLoading(true);
+			const errorResponse: string | void = await auth.signup(user);
+			if (errorResponse !== undefined) {
+				console.log('err', errorResponse);
+				return await Swal.fire({
+					text: errorResponse,
+				});
+			}
+			// console.log(response);
+			navigate('/login');
+		} catch (error: any) {
+			console.log(error.message);
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -50,6 +65,7 @@ const Register: React.FC = () => {
 						}}
 						className={styles.inputRegistro}
 						type='text'
+						name='firstName'
 					/>
 				</div>
 				<div className={styles.contInput}>
@@ -60,6 +76,7 @@ const Register: React.FC = () => {
 						}}
 						className={styles.inputRegistro}
 						type='text'
+						name='lastName'
 					/>
 				</div>
 				<div className={styles.contSelect}>
@@ -110,7 +127,9 @@ const Register: React.FC = () => {
 					/>
 				</div>
 				<div>
-					<button type='submit'>Register</button>
+					<button disabled={loading} type='submit'>
+						Register
+					</button>
 				</div>
 			</form>
 		</div>
