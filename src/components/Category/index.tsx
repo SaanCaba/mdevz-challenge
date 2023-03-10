@@ -4,6 +4,7 @@ import styles from './index.module.css';
 
 import { TbPlaystationTriangle } from 'react-icons/tb';
 import { RiFlashlightFill } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
 
 interface Props {
 	categoryEl: DataCategories;
@@ -21,24 +22,29 @@ const Category: React.FC<Props> = ({ categoryEl }) => {
 			<div className={styles.contMainMedals}>
 				{categoryEl.coins.map((el, i) => {
 					return (
-						<div className={styles.contMedal} key={i}>
-							<div className={styles.contImg}>
-								<TbPlaystationTriangle
-									className={styles.iconImg}
-									color='#c4bc66'
-									size={18}
-								/>
-								<img className={styles.img} src={el.img} />
+						<Link
+							to={`/profile/${el.id}`}
+							key={i}
+							style={{ textDecoration: 'none', cursor: 'pointer' }}>
+							<div className={styles.contMedal}>
+								<div className={styles.contImg}>
+									<TbPlaystationTriangle
+										className={styles.iconImg}
+										color='#c4bc66'
+										size={18}
+									/>
+									<img className={styles.img} src={el.img} />
+								</div>
+								<div className={styles.contInfoMedal}>
+									<span className={styles.irlaName}>{el.irlaName}</span>
+									<span>{el.irlaDesc}</span>
+									<span className={styles.xpText}>
+										<RiFlashlightFill color='#fcd305' />
+										{el.exp} XP
+									</span>
+								</div>
 							</div>
-							<div className={styles.contInfoMedal}>
-								<span className={styles.irlaName}>{el.irlaName}</span>
-								<span>{el.irlaDesc}</span>
-								<span className={styles.xpText}>
-									<RiFlashlightFill color='#fcd305' />
-									{el.exp} XP
-								</span>
-							</div>
-						</div>
+						</Link>
 					);
 				})}
 			</div>

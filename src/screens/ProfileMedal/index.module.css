@@ -1,0 +1,140 @@
+.contProfileMedalView {
+	height: 100%;
+	background-color: rgb(239, 239, 239);
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	height: min-content;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.headerText {
+	margin-top: 30px;
+}
+
+.backProfile {
+	position: absolute;
+	top: 20px;
+	left: 35px;
+	padding: 5px;
+	background-color: white;
+	height: min-content;
+	border-radius: 5px;
+}
+
+.mainContent {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.uploadCoin {
+	position: absolute;
+	top: 20px;
+	right: 35px;
+	padding: 5px;
+	background-color: white;
+	height: min-content;
+	border-radius: 5px;
+}
+
+.sectionImg {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 15px;
+}
+
+.imgCoin {
+	width: 210px;
+}
+
+.text3D {
+	text-decoration: underline;
+	text-align: center;
+	font-size: small;
+}
+
+.sectionInfoCoin {
+	display: flex;
+	justify-content: center;
+}
+
+.infoCoin {
+	margin: 20px;
+	width: 90%;
+	height: min-content;
+	background-color: white;
+	border-radius: 30px;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+	position: relative;
+	gap: 5px;
+}
+
+.infoCoinBox {
+	display: flex;
+	flex-direction: column;
+	height: min-content;
+	gap: 10px;
+}
+
+.trackBtn {
+	position: absolute;
+	right: 20px;
+	top: 30px;
+	padding: 15px;
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background-color: #249a72;
+	width: 100px;
+	font-weight: bold;
+	font-size: 11px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.irlaName {
+	font-size: 22px;
+}
+
+.textMainCoin {
+	border-top: 1px solid rgb(237, 230, 230);
+	border-bottom: 1px solid rgb(237, 230, 230);
+	height: min-content;
+	padding: 20px;
+}
+
+.contDescription {
+	margin-top: 18px;
+	height: min-content;
+}
+
+.contDescription p {
+	font-size: small;
+}
+
+.contBtnLogIRLA {
+	height: min-content;
+	margin-top: 18px;
+}
+
+.contBtnLogIRLA button {
+	width: 100%;
+	background-color: #191919;
+	color: white;
+	border: none;
+	padding: 15px;
+	font-size: 18px;
+	border-radius: 8px;
+}

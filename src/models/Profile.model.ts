@@ -27,6 +27,6 @@ export interface Coins {
 	img: string,
 	irlaName: string,
 	irlaDesc: string,
-	exp: 43,
+	exp: number,
 	id:number
 }
