@@ -24,8 +24,6 @@
 	display: flex;
 	flex-direction: column;
 	padding: 10px;
-	margin-right: 10px;
-	margin-left: 10px;
 	border-radius: 10px;
 }
 
@@ -33,10 +31,18 @@
 	display: flex;
 	justify-content: center;
 	background-color: white;
+	position: relative;
 }
 
 .img {
 	width: 89px;
+	padding: 10px;
+}
+
+.iconImg {
+	position: absolute;
+	right: 5px;
+	top: 7px;
 }
 
 .irlaName {
@@ -56,4 +62,9 @@
 
 .xpText {
 	font-weight: bold;
+}
+
+.categoryTypeText {
+	font-weight: bold;
+	font-size: 14px;
 }

@@ -31,9 +31,16 @@ const Profile: React.FC = () => {
 						{userProfileData?.first_name} {userProfileData?.last_name}{' '}
 						<MdVerified color='#57a9fa' />
 					</span>
-					<span>
-						<IoLocationSharp color='#ccb883' /> {userProfileData?.country}
-					</span>
+					<div
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+						}}>
+						<IoLocationSharp size={17} color='#ccb883' />{' '}
+						<span className={styles.countryText}>
+							{userProfileData?.country}
+						</span>
+					</div>
 					<div
 						style={{
 							display: 'flex',
@@ -51,15 +58,8 @@ const Profile: React.FC = () => {
 						</div>
 					</button>
 					<button className={styles.btnTracked}>
-						<div
-							style={{
-								background: 'red',
-								display: 'flex',
-								justifyContent: 'center',
-							}}>
-							<TbTargetArrow size={17} />
-							<span>Tracked IRLAs</span>
-						</div>
+						<TbTargetArrow size={17} />
+						<span className={styles.trackedIrlasText}>Tracked IRLAs</span>
 					</button>
 				</section>
 				<section className={styles.sectionStatistics}>

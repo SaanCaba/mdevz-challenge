@@ -6,6 +6,7 @@ import Logout from './components/Logout';
 import Profile from './screens/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
 import Register from './screens/Register';
+import ProfileCoin from './screens/ProfileMedal';
 
 const App: React.FC = () => {
 	return (
@@ -27,6 +28,14 @@ const App: React.FC = () => {
 					element={
 						<ProtectedRoute>
 							<Profile />
+						</ProtectedRoute>
+					}
+				/>
+				<Route
+					path='/profile/:id'
+					element={
+						<ProtectedRoute>
+							<ProfileCoin />
 						</ProtectedRoute>
 					}
 				/>

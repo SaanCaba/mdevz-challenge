@@ -8,8 +8,11 @@ import {
 } from 'firebase/auth';
 import { addDoc, collection, type DocumentData } from 'firebase/firestore';
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { dataCategories } from '../data/dataCategories';
 import { auth, db } from '../firebase.config';
 import { type UserRegisterData, type AuthUser } from '../models/AuthUser.model';
+import { type Coins, type DataCategories } from '../models/Profile.model';
+import { getOnlyCoins } from '../utils/getOnlyCoins';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { getUserInfo } from '../utils/getUserInfo';
@@ -25,6 +28,9 @@ export const Context = createContext<AuthUser>({
 	login() {},
 	logout() {},
 	loading: false,
+	coinsData: [],
+	coinSelected: {},
+	getCoinById() {},
 });
 
 export const useAuth = (): AuthUser => {
@@ -41,7 +47,11 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 	const [userProfileData, setUserProfileData] = useState<null | DocumentData>(
 		null
 	);
+	const [coinSelected, setCoinsSelected] = useState<
+		Coins | Record<string, unknown>
+	>({});
 	const [loading, setLoading] = useState<boolean>(true);
+	const [coinsData] = useState<DataCategories[]>(dataCategories);
 	const signup = async (user: UserRegisterData): Promise<void | string> => {
 		// en response.proactiveRefresh.user.uid está el id del usuario guardado en firebase.
 		try {
@@ -96,6 +106,14 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 		localStorage.removeItem('user_token');
 	};
 
+	const getCoinById = (id: string): void => {
+		const allCoins = getOnlyCoins();
+		const coin = allCoins.find((el) => el.id === Number(id));
+		if (coin !== undefined) {
+			setCoinsSelected(coin);
+		}
+	};
+
 	useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {
 			if (currentUser === null) {
@@ -114,7 +132,17 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 
 	return (
 		<Context.Provider
-			value={{ userSession, userProfileData, signup, login, logout, loading }}>
+			value={{
+				userSession,
+				userProfileData,
+				signup,
+				login,
+				logout,
+				loading,
+				coinsData,
+				coinSelected,
+				getCoinById,
+			}}>
 			{children}
 		</Context.Provider>
 	);
