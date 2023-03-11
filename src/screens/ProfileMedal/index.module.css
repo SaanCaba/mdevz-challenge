@@ -138,3 +138,59 @@
 	font-size: 18px;
 	border-radius: 8px;
 }
+
+@media screen and (min-width: 40em) and (max-width: 63.9em) {
+	.headerText {
+		font-size: 23px;
+	}
+	.backProfile svg {
+		width: 30px;
+		height: 30px;
+	}
+	.uploadCoin svg {
+		width: 30px;
+		height: 30px;
+	}
+	.mainContent {
+		margin-top: 40px;
+		gap: 30px;
+	}
+	.imgCoin {
+		width: 300px;
+	}
+	.text3D {
+		font-size: 17px;
+	}
+	.infoCoin {
+		padding-bottom: 35px;
+		padding-top: 35px;
+		padding-left: 25px;
+		padding-right: 25px;
+		gap: 15px;
+	}
+	.infoCoinBox {
+		gap: 20px;
+	}
+	.infoCoinBox span svg {
+		width: 20px;
+		height: 20px;
+	}
+	.irlaName {
+		font-size: 27px;
+	}
+	.trackBtn {
+		padding: 15px;
+		font-size: 16px;
+		gap: 5px;
+	}
+	.trackBtn svg {
+		width: 25px;
+		height: 25px;
+	}
+	.textMainCoin span {
+		font-size: 20px;
+	}
+	.contDescription p {
+		font-size: medium;
+	}
+}
