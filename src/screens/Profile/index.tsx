@@ -27,25 +27,20 @@ const Profile: React.FC = () => {
 					<div className={styles.divContImg}>
 						<img src='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg' />
 					</div>
-					<span className={styles.fullName}>
-						{userProfileData?.first_name} {userProfileData?.last_name}{' '}
+					<div className={styles.contFullName}>
+						<span className={styles.fullName}>
+							{userProfileData?.first_name} {userProfileData?.last_name}{' '}
+						</span>
 						<MdVerified color='#57a9fa' />
-					</span>
-					<div
-						style={{
-							display: 'flex',
-							alignItems: 'center',
-						}}>
+					</div>
+
+					<div className={styles.contLocationInfo}>
 						<IoLocationSharp size={17} color='#ccb883' />{' '}
 						<span className={styles.countryText}>
 							{userProfileData?.country}
 						</span>
 					</div>
-					<div
-						style={{
-							display: 'flex',
-							alignItems: 'center',
-						}}>
+					<div className={styles.contTarget}>
 						<TbTargetArrow color='#11b981' size={20} />{' '}
 						<span className={styles.infoProfileText}>Tracking 13 IRLAs</span>
 					</div>
@@ -71,7 +66,7 @@ const Profile: React.FC = () => {
 				<section className={styles.sectionFilterIrlas}>
 					<button>All IRLAS</button>
 				</section>
-				<section>
+				<section style={{ marginBottom: '30px' }}>
 					<Categories />
 				</section>
 			</main>

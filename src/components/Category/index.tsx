@@ -12,7 +12,7 @@ interface Props {
 
 const Category: React.FC<Props> = ({ categoryEl }) => {
 	return (
-		<div className={styles.contCategory}>
+		<div>
 			<header className={styles.headerCategory}>
 				<span className={styles.categoryTypeText}>
 					{categoryEl.categoryType}

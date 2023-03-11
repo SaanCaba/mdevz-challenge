@@ -69,3 +69,35 @@
 	font-weight: bold;
 	font-size: 14px;
 }
+
+@media screen and (min-width: 40em) and (max-width: 63.9em) {
+	.headerCategory {
+		margin-bottom: 17px;
+		margin-top: 17px;
+	}
+
+	.contMainMedals {
+		justify-content: space-around;
+	}
+	.img {
+		width: 150px;
+	}
+	.contImg svg {
+		width: 24px;
+		height: 24px;
+	}
+	.contInfoMedal span {
+		font-size: 15px;
+	}
+	.categoryTypeText {
+		font-weight: bold;
+		font-size: 17px;
+		width: 45%;
+		text-align: center;
+	}
+	.seeAll {
+		font-size: 17px;
+		width: 20%;
+		text-align: start;
+	}
+}

@@ -27,3 +27,16 @@
 .content {
 	font-size: 12px;
 }
+@media screen and (min-width: 40em) and (max-width: 63.9em) {
+	.contStatistics {
+		padding: 18px;
+		word-break: break-all;
+		width: 145px;
+	}
+	.title {
+		font-size: 17px;
+	}
+	.content {
+		font-size: 14px;
+	}
+}
