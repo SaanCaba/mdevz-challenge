@@ -45,7 +45,7 @@
 	font-weight: bold;
 }
 
-@media screen and (min-width: 40em) and (max-width: 63.9em) {
+@media only screen and (min-width: 768px) {
 	.contItemSlider {
 		min-width: 20%;
 		padding: 20px;
@@ -68,5 +68,31 @@
 	}
 	.nameItem {
 		font-size: 13px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.contItemSlider {
+		min-width: 30%;
+		padding: 20px;
+	}
+	.contLogo {
+		height: 75px;
+		width: 75px;
+	}
+	.contLogoSelected {
+		height: 75px;
+		width: 75px;
+	}
+	.contLogoSelected svg {
+		height: 40px;
+		width: 40px;
+	}
+	.contLogo svg {
+		height: 40px;
+		width: 40px;
+	}
+	.nameItem {
+		font-size: 15px;
 	}
 }

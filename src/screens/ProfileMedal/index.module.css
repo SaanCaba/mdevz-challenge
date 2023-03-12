@@ -139,7 +139,7 @@
 	border-radius: 8px;
 }
 
-@media screen and (min-width: 40em) and (max-width: 63.9em) {
+@media only screen and (min-width: 768px) {
 	.headerText {
 		font-size: 23px;
 	}
@@ -192,5 +192,11 @@
 	}
 	.contDescription p {
 		font-size: medium;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.infoCoin {
+		width: 70%;
 	}
 }

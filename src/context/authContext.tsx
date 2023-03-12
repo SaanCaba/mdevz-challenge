@@ -123,12 +123,14 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 			void (async () => {
 				setUserSession(currentUser);
 				(await getUserInfo(currentUser?.uid)).forEach((doc) => {
+					console.log('object');
 					setUserProfileData(doc.data());
 					setLoading(false);
 				});
 			})();
 		});
-	}, []);
+		console.log(userSession);
+	}, [userSession]);
 
 	return (
 		<Context.Provider

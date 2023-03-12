@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal, { type SweetAlertResult } from 'sweetalert2';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 
 import styles from './index.module.css';
@@ -10,7 +9,7 @@ const Login: React.FC = () => {
 		email: '',
 		password: '',
 	});
-
+	const [error, setError] = useState('');
 	const [loading, setLoading] = useState<boolean>(false);
 
 	const auth = useAuth();
@@ -27,7 +26,7 @@ const Login: React.FC = () => {
 
 	const handleSubmit = async (
 		e: React.FormEvent<HTMLFormElement>
-	): Promise<void | SweetAlertResult<any>> => {
+	): Promise<void> => {
 		e.preventDefault();
 		try {
 			setLoading(true);
@@ -37,9 +36,7 @@ const Login: React.FC = () => {
 			);
 			if (errorResponse !== undefined) {
 				console.log(errorResponse);
-				return await Swal.fire({
-					text: errorResponse,
-				});
+				return setError(errorResponse);
 			}
 			navigate('/profile');
 		} catch (error) {
@@ -56,9 +53,10 @@ const Login: React.FC = () => {
 				}}
 				className={styles.formLogin}>
 				<div>
-					<label>Email: </label>
+					<label className={styles.label}>Email: </label>
 					<input
 						onChange={(e) => {
+							setError('');
 							handleChange(e);
 						}}
 						className={styles.input}
@@ -67,9 +65,10 @@ const Login: React.FC = () => {
 					/>
 				</div>
 				<div>
-					<label>Password: </label>
+					<label className={styles.label}>Password: </label>
 					<input
 						onChange={(e) => {
+							setError('');
 							handleChange(e);
 						}}
 						className={styles.input}
@@ -77,8 +76,15 @@ const Login: React.FC = () => {
 						name='password'
 					/>
 				</div>
+				<div className={styles.contError}>
+					{error.length > 0 && <span>{error}</span>}
+				</div>
+
 				<div>
-					<button disabled={loading} type='submit'>
+					<Link style={{ color: 'black' }} to='/register'>
+						<span>Do you not have an account?</span>
+					</Link>
+					<button className={styles.btn} disabled={loading} type='submit'>
 						Log In
 					</button>
 				</div>

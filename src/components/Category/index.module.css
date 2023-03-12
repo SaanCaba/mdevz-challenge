@@ -70,7 +70,7 @@
 	font-size: 14px;
 }
 
-@media screen and (min-width: 40em) and (max-width: 63.9em) {
+@media only screen and (min-width: 768px) {
 	.headerCategory {
 		margin-bottom: 17px;
 		margin-top: 17px;
@@ -98,6 +98,39 @@
 	.seeAll {
 		font-size: 17px;
 		width: 20%;
+		text-align: start;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.headerCategory {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+	.contMainMedals {
+		justify-content: space-between;
+		width: 100%;
+	}
+	.img {
+		width: 180px;
+	}
+	.contImg svg {
+		width: 28px;
+		height: 28px;
+	}
+	.contInfoMedal span {
+		font-size: 17px;
+	}
+	.categoryTypeText {
+		font-weight: bold;
+		font-size: 17px;
+		width: unset;
+		text-align: start;
+	}
+	.seeAll {
+		font-size: 17px;
+		width: unset;
 		text-align: start;
 	}
 }

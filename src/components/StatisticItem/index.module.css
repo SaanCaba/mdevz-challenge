@@ -27,7 +27,7 @@
 .content {
 	font-size: 12px;
 }
-@media screen and (min-width: 40em) and (max-width: 63.9em) {
+@media only screen and (min-width: 768px) {
 	.contStatistics {
 		padding: 18px;
 		word-break: break-all;
@@ -38,5 +38,29 @@
 	}
 	.content {
 		font-size: 14px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.contStatistics {
+		padding: 18px;
+		height: 50px;
+		word-break: break-all;
+		width: 155px;
+	}
+	.title {
+		font-size: 19px;
+	}
+	.content {
+		font-size: 16px;
+	}
+	.contIcon {
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+	.contIcon svg {
+		width: 26px;
+		height: 26px;
 	}
 }

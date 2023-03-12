@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 import type CountryMapped from '../../models/Country.model';
 import { getCountry } from '../../utils/getCountrys';
@@ -9,6 +8,8 @@ import styles from './index.module.css';
 const Register: React.FC = () => {
 	const [countrys] = useState<CountryMapped[]>(getCountry());
 	const [loading, setLoading] = useState<boolean>(false);
+	const [error, setError] = useState('');
+
 	const auth = useAuth();
 
 	const navigate = useNavigate();
@@ -37,9 +38,7 @@ const Register: React.FC = () => {
 			const errorResponse: string | void = await auth.signup(user);
 			if (errorResponse !== undefined) {
 				console.log('err', errorResponse);
-				return await Swal.fire({
-					text: errorResponse,
-				});
+				return setError(errorResponse);
 			}
 			// console.log(response);
 			navigate('/login');
@@ -61,6 +60,7 @@ const Register: React.FC = () => {
 					<label>First Name:</label>
 					<input
 						onChange={(e) => {
+							setError('');
 							handleChange(e);
 						}}
 						className={styles.inputRegistro}
@@ -72,6 +72,7 @@ const Register: React.FC = () => {
 					<label>Last Name:</label>
 					<input
 						onChange={(e) => {
+							setError('');
 							handleChange(e);
 						}}
 						className={styles.inputRegistro}
@@ -83,6 +84,7 @@ const Register: React.FC = () => {
 					<label>Country: </label>
 					<select
 						onChange={(e) => {
+							setError('');
 							if (e.target.value === 'Countrys') {
 								return;
 							}
@@ -108,6 +110,7 @@ const Register: React.FC = () => {
 						name='email'
 						value={user.email}
 						onChange={(e) => {
+							setError('');
 							handleChange(e);
 						}}
 						className={styles.inputRegistro}
@@ -120,14 +123,22 @@ const Register: React.FC = () => {
 						name='password'
 						value={user.password}
 						onChange={(e) => {
+							setError('');
 							handleChange(e);
 						}}
 						className={styles.inputRegistro}
 						type='password'
 					/>
 				</div>
+				<div className={styles.contError}>
+					{error.length > 0 && <span>{error}</span>}
+				</div>
+
 				<div>
-					<button disabled={loading} type='submit'>
+					<Link style={{ color: 'black' }} to='/login'>
+						<span>Do you have an account?</span>
+					</Link>
+					<button className={styles.btn} disabled={loading} type='submit'>
 						Register
 					</button>
 				</div>

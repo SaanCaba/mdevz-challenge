@@ -6,12 +6,6 @@
 	align-items: center;
 }
 
-.formLogin {
-	display: flex;
-	flex-direction: column;
-	gap: 50px;
-}
-
 .input {
 	width: 100%;
 	padding-top: 10px;
@@ -22,4 +16,90 @@
 
 .input:focus {
 	outline: none;
+}
+.btn {
+	width: 100%;
+	border: none;
+	border-radius: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 1s linear;
+	margin-top: 15px;
+}
+
+.btn:hover {
+	background-color: rgb(202, 200, 200);
+}
+.formLogin {
+	height: 350px;
+	display: flex;
+	flex-direction: column;
+	gap: 0px;
+}
+
+.contError {
+	display: flex;
+	justify-content: center;
+	height: 100px;
+}
+.contError span {
+	color: red;
+}
+
+@media only screen and (min-width: 768px) {
+	.formLogin {
+		height: 350px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.label {
+		font-size: 22px;
+	}
+	.input {
+		width: 100%;
+		padding-top: 20px;
+		padding-bottom: 5px;
+		font-size: 20px;
+		border: none;
+		border-bottom: 1px solid black;
+	}
+	span {
+		font-size: 18px;
+	}
+	.btn {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.contLoginForm {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.formLogin {
+		height: 250px;
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.label {
+		font-size: 20px;
+	}
+	.input {
+		width: 100%;
+		padding-top: 20px;
+		padding-bottom: 5px;
+		font-size: 15px;
+		border: none;
+		border-bottom: 1px solid black;
+	}
 }

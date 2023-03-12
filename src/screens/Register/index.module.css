@@ -9,7 +9,8 @@
 .formRegistro {
 	display: flex;
 	flex-direction: column;
-	gap: 50px;
+	gap: 30px;
+	height: 500px;
 }
 
 .formRegistro input:focus {
@@ -47,4 +48,56 @@
 
 .selectCountrie:focus {
 	outline: none;
+}
+
+.btn {
+	width: 100%;
+	border: none;
+	border-radius: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	font-size: 16px;
+	cursor: pointer;
+	transition: 1s linear;
+	margin-top: 10px;
+}
+
+.btn:hover {
+	background-color: rgb(202, 200, 200);
+}
+
+.contError {
+	display: flex;
+	justify-content: center;
+	height: 50px;
+}
+.contError span {
+	color: red;
+}
+
+@media only screen and (min-width: 768px) {
+	.contInput label {
+		font-weight: 700;
+		font-size: 20px;
+	}
+	span {
+		font-size: 18px;
+	}
+	.btn {
+		font-size: 20px;
+	}
+	.formRegistro input {
+		font-size: 20px;
+	}
+	.selectCountrys {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.contInput label {
+		font-weight: 700;
+		font-size: 18px;
+	}
 }

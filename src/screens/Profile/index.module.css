@@ -123,6 +123,7 @@
 .contFlexBtnFollow {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
 .followText {
@@ -161,7 +162,7 @@
 
 /*tablet*/
 
-@media screen and (min-width: 40em) and (max-width: 63.9em) {
+@media only screen and (min-width: 768px) {
 	.headerProfile span {
 		font-size: 30px;
 	}
@@ -220,5 +221,50 @@
 		width: 40%;
 		padding: 15px;
 		font-size: 16px;
+	}
+}
+
+/*web*/
+@media only screen and (min-width: 992px) {
+	.headerProfile span {
+		font-size: 35px;
+	}
+	.headerProfile p svg {
+		height: 35px;
+		width: 35px;
+	}
+	.sectionProfileInfo {
+		gap: 10px;
+	}
+	.sectionProfileInfo img {
+		width: 220px;
+		height: 220px;
+	}
+
+	.sectionButtons {
+		display: flex;
+		flex-direction: column;
+		justify-content: unset;
+		align-items: center;
+	}
+	.btnFollow {
+		height: 50px;
+	}
+	.btnTracked {
+		height: 50px;
+	}
+	.btnTracked svg {
+		height: 25px;
+		width: 25px;
+	}
+
+	.sectionFilterIrlas button {
+		margin: 10px;
+		width: 40%;
+		padding: 15px;
+		font-size: 16px;
+	}
+	.mainContentProfile {
+		gap: 50px;
 	}
 }
