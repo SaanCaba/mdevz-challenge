@@ -1,0 +1,49 @@
+.contLoader {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+
+.contContentLoader {
+	height: 200px;
+	width: 100%;
+}
+
+.contLoaderCol {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.contContentLoader h1 {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.loadSpinner {
+	border: 3px solid rgba(24, 24, 23, 0.866);
+	width: 96px;
+	height: 96px;
+	border-radius: 50%;
+	border-left-color: transparent;
+	animation: spin 1s ease infinite;
+}
+
+.contSpinner {
+	display: flex;
+	justify-content: center;
+	height: min-content;
+	align-items: center;
+	z-index: 100;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
