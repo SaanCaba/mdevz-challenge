@@ -24,13 +24,19 @@ export function convertMessageRegister(code:string) : ErrorMessage{
 
 export function convertMessageRegisterUserDB(user:UserRegisterData): ErrorMessage{
   if(user.firstName.length === 0){
-      return 'Sorry, the First Name field is empty.'
+      return 'Sorry, the First name field is empty.'
     }
     else if(user.lastName.length === 0){
-      return 'Sorry, the Last Name field is empty.'
+      return 'Sorry, the Last name field is empty.'
     }
     else if(user.country.length === 0){
       return 'Sorry, the country field is empty.'
+    }
+    else if(user.firstName.length > 15){
+      return 'Sorry, the First name must be less than 15 letters'
+    }
+    else if(user.lastName.length > 15){
+      return 'Sorry, the Last name must be less than 15 letters'
     }
     else{
       return 'Register error try again later.'

@@ -1,7 +1,7 @@
 import React from 'react';
 import { type StatisticsProfile } from '../../models/Profile.model';
 
-import { BsFire } from 'react-icons/bs';
+// import { BsFire } from 'react-icons/bs';
 import { RiFlashlightFill } from 'react-icons/ri';
 import { FaMedal } from 'react-icons/fa';
 import { TbPlaystationTriangle } from 'react-icons/tb';
@@ -9,14 +9,14 @@ import { TbPlaystationTriangle } from 'react-icons/tb';
 import StatisticItem from '../StatisticItem';
 
 const statistics: StatisticsProfile[] = [
-	{
-		title: 27,
-		content: 'Current streak',
-		icon: {
-			element: BsFire,
-			color: '#f05959',
-		},
-	},
+	// {
+	// 	title: 27,
+	// 	content: 'Current streak',
+	// 	icon: {
+	// 		element: BsFire,
+	// 		color: '#f05959',
+	// 	},
+	// },
 	{
 		title: 23.233,
 		content: 'Total XP',
