@@ -82,6 +82,8 @@
 	display: flex;
 	justify-content: center;
 	height: 50px;
+	width: 294px;
+	background-color: rgb(248, 248, 248);
 }
 .contError span {
 	color: red;
@@ -103,6 +105,9 @@
 	}
 	.selectCountrys {
 		font-size: 20px;
+	}
+	.contError {
+		width: 470px;
 	}
 }
 
