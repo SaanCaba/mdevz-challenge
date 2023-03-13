@@ -26,7 +26,7 @@ const ProfileCoin: React.FC = () => {
 	return (
 		<div className={styles.contProfileMedalView}>
 			<header className={styles.header}>
-				<Link style={{ cursor: 'pointer' }} to='/profile'>
+				<Link style={{ cursor: 'pointer', color: 'black' }} to='/profile'>
 					<span className={styles.backProfile}>
 						<BsArrowLeft />
 					</span>
