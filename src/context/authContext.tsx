@@ -11,7 +11,11 @@ import { addDoc, collection, type DocumentData } from 'firebase/firestore';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { dataCategories } from '../data/dataCategories';
 import { auth, db } from '../firebase.config';
-import { type UserRegisterData, type AuthUser } from '../models/AuthUser.model';
+import {
+	type UserRegisterData,
+	type AuthUser,
+	type UserDBInfo,
+} from '../models/AuthUser.model';
 import { type Coins, type DataCategories } from '../models/Profile.model';
 import { getOnlyCoins } from '../utils/getOnlyCoins';
 
@@ -131,10 +135,9 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 			}
 			setUserSession(currentUser);
 			void (async () => {
-				(await getUserInfo(currentUser?.uid)).forEach((doc) => {
-					setUserProfileData(doc.data());
-					setLoading(false);
-				});
+				const userDBData: UserDBInfo = await getUserInfo(currentUser?.uid);
+				setUserProfileData(userDBData);
+				setLoading(false);
 			})();
 		});
 	}, [userSession]);

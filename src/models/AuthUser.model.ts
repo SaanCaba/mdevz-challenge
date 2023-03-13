@@ -20,3 +20,11 @@ export interface UserRegisterData{
     firstName: string,
     lastName: string
 }
+
+export interface UserDBInfo{
+    user_id:string,
+    last_name:string,
+    country:string,
+    level:number,
+    first_name:string
+}
