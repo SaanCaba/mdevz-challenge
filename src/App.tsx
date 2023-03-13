@@ -15,10 +15,10 @@ const App: React.FC = () => {
 				<Route
 					path='/login'
 					element={
-						<>
+						<div className='viewLogin'>
 							<Logout />
 							<Login />
-						</>
+						</div>
 					}
 				/>
 				<Route path='/register' element={<Register />} />

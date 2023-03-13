@@ -51,98 +51,101 @@ const Register: React.FC = () => {
 
 	return (
 		<div className={styles.contForm}>
-			<form
-				onSubmit={(e) => {
-					void handleSubmit(e);
-				}}
-				className={styles.formRegistro}>
-				<div className={styles.contInput}>
-					<label>First Name:</label>
-					<input
-						onChange={(e) => {
-							setError('');
-							handleChange(e);
-						}}
-						className={styles.inputRegistro}
-						type='text'
-						name='firstName'
-					/>
-				</div>
-				<div className={styles.contInput}>
-					<label>Last Name:</label>
-					<input
-						onChange={(e) => {
-							setError('');
-							handleChange(e);
-						}}
-						className={styles.inputRegistro}
-						type='text'
-						name='lastName'
-					/>
-				</div>
-				<div className={styles.contSelect}>
-					<label>Country: </label>
-					<select
-						onChange={(e) => {
-							setError('');
-							if (e.target.value === 'Countrys') {
-								return;
-							}
-							setUser({
-								...user,
-								country: e.target.value,
-							});
-						}}
-						className={styles.selectCountrys}>
-						<option>Countrys</option>
-						{countrys.map((c, i) => {
-							return (
-								<option key={c.id} value={c.name}>
-									{c.name}
-								</option>
-							);
-						})}
-					</select>
-				</div>
-				<div className={styles.contInput}>
-					<label htmlFor=''>Email:</label>
-					<input
-						name='email'
-						value={user.email}
-						onChange={(e) => {
-							setError('');
-							handleChange(e);
-						}}
-						className={styles.inputRegistro}
-						type='email'
-					/>
-				</div>
-				<div className={styles.contInput}>
-					<label htmlFor=''>Password:</label>
-					<input
-						name='password'
-						value={user.password}
-						onChange={(e) => {
-							setError('');
-							handleChange(e);
-						}}
-						className={styles.inputRegistro}
-						type='password'
-					/>
-				</div>
-				<div className={styles.contError}>
-					{error.length > 0 && <span>{error}</span>}
-				</div>
+			<div className={styles.contFormTitle}>
+				<h1>Register</h1>
+				<form
+					onSubmit={(e) => {
+						void handleSubmit(e);
+					}}
+					className={styles.formRegistro}>
+					<div className={styles.contInput}>
+						<label>First Name:</label>
+						<input
+							onChange={(e) => {
+								setError('');
+								handleChange(e);
+							}}
+							className={styles.inputRegistro}
+							type='text'
+							name='firstName'
+						/>
+					</div>
+					<div className={styles.contInput}>
+						<label>Last Name:</label>
+						<input
+							onChange={(e) => {
+								setError('');
+								handleChange(e);
+							}}
+							className={styles.inputRegistro}
+							type='text'
+							name='lastName'
+						/>
+					</div>
+					<div className={styles.contSelect}>
+						<label>Country: </label>
+						<select
+							onChange={(e) => {
+								setError('');
+								if (e.target.value === 'Countrys') {
+									return;
+								}
+								setUser({
+									...user,
+									country: e.target.value,
+								});
+							}}
+							className={styles.selectCountrys}>
+							<option>Countrys</option>
+							{countrys.map((c, i) => {
+								return (
+									<option key={c.id} value={c.name}>
+										{c.name}
+									</option>
+								);
+							})}
+						</select>
+					</div>
+					<div className={styles.contInput}>
+						<label htmlFor=''>Email:</label>
+						<input
+							name='email'
+							value={user.email}
+							onChange={(e) => {
+								setError('');
+								handleChange(e);
+							}}
+							className={styles.inputRegistro}
+							type='email'
+						/>
+					</div>
+					<div className={styles.contInput}>
+						<label htmlFor=''>Password:</label>
+						<input
+							name='password'
+							value={user.password}
+							onChange={(e) => {
+								setError('');
+								handleChange(e);
+							}}
+							className={styles.inputRegistro}
+							type='password'
+						/>
+					</div>
+					<div className={styles.contError}>
+						{error.length > 0 && <span>{error}</span>}
+					</div>
 
-				<div>
-					<Link style={{ color: 'black' }} to='/login'>
-						<span>Do you have an account?</span>
-					</Link>
-					<button className={styles.btn} disabled={loading} type='submit'>
-						Register
-					</button>
-				</div>
-			</form>
+					<div>
+						<Link style={{ color: 'black' }} to='/login'>
+							<span>Do you have an account?</span>
+						</Link>
+						<button className={styles.btn} disabled={loading} type='submit'>
+							Register
+						</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 };

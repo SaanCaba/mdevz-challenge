@@ -1,3 +1,25 @@
 .noauth {
 	display: none;
 }
+
+.contLogout {
+	display: flex;
+	justify-content: center;
+	height: min-content;
+	margin-top: 10px;
+}
+
+.btnLogout {
+	display: unset !important;
+	padding: 10px;
+	font-size: 17px;
+	font-weight: bold;
+	border-radius: 10px;
+	border: none;
+	cursor: pointer;
+	transition: 1s linear;
+}
+
+.btnLogout:hover {
+	background-color: rgb(202, 200, 200);
+}

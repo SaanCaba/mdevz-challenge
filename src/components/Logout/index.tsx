@@ -14,15 +14,17 @@ const Logout: React.FC = () => {
 		setAuth(token);
 	}, []);
 	return (
-		<button
-			className={typeof auth !== 'string' ? styles.noauth : ''}
-			onClick={() => {
-				void logout();
-				navigate('/login');
-				window.location.reload();
-			}}>
-			Logout
-		</button>
+		<div className={styles.contLogout}>
+			<button
+				className={typeof auth !== 'string' ? styles.noauth : styles.btnLogout}
+				onClick={() => {
+					void logout();
+					navigate('/login');
+					window.location.reload();
+				}}>
+				Logout
+			</button>
+		</div>
 	);
 };
 

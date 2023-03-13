@@ -26,6 +26,9 @@ const Profile: React.FC = () => {
 				<section className={styles.sectionProfileInfo}>
 					<div className={styles.divContImg}>
 						<img src='https://pbs.twimg.com/media/FjU2lkcWYAgNG6d.jpg' />
+						<div className={styles.contLevel}>
+							<span className={styles.level}>{userProfileData?.level}</span>
+						</div>
 					</div>
 					<div className={styles.contFullName}>
 						<span className={styles.fullName}>

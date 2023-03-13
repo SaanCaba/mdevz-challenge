@@ -73,6 +73,7 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 				country: user.country,
 				first_name: user.firstName,
 				last_name: user.lastName,
+				level: 1,
 			};
 			const colRef = collection(db, 'users');
 			await addDoc(colRef, userDb);
@@ -116,20 +117,18 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 
 	useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {
-			if (currentUser === null) {
-				setLoading(false);
-				return;
-			}
+			// if (currentUser === null) {
+			// 	setLoading(false);
+			// 	return;
+			// }
+			setUserSession(currentUser);
 			void (async () => {
-				setUserSession(currentUser);
 				(await getUserInfo(currentUser?.uid)).forEach((doc) => {
-					console.log('object');
 					setUserProfileData(doc.data());
 					setLoading(false);
 				});
 			})();
 		});
-		console.log(userSession);
 	}, [userSession]);
 
 	return (

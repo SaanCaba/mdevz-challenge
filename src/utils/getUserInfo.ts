@@ -2,6 +2,7 @@ import { query,collection,where, getDocs, type DocumentData, type QuerySnapshot 
 import { db } from "../firebase.config";
 
 export const getUserInfo = async (userId:string | undefined) : Promise<QuerySnapshot<DocumentData>> => {
+    console.log(userId)
     const q = query(
         collection(db, 'users'),
         where('user_id', '==', userId)

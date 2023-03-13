@@ -6,6 +6,16 @@
 	align-items: center;
 }
 
+.contFormTitle {
+	height: min-content;
+	padding: 20px;
+	margin-bottom: 60px;
+}
+.contFormTitle h1 {
+	margin-bottom: 30px;
+	text-align: center;
+}
+
 .input {
 	width: 100%;
 	padding-top: 10px;

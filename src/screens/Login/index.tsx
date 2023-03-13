@@ -47,48 +47,53 @@ const Login: React.FC = () => {
 
 	return (
 		<div className={styles.contLoginForm}>
-			<form
-				onSubmit={(e) => {
-					void handleSubmit(e);
-				}}
-				className={styles.formLogin}>
-				<div>
-					<label className={styles.label}>Email: </label>
-					<input
-						onChange={(e) => {
-							setError('');
-							handleChange(e);
-						}}
-						className={styles.input}
-						type='email'
-						name='email'
-					/>
-				</div>
-				<div>
-					<label className={styles.label}>Password: </label>
-					<input
-						onChange={(e) => {
-							setError('');
-							handleChange(e);
-						}}
-						className={styles.input}
-						type='password'
-						name='password'
-					/>
-				</div>
-				<div className={styles.contError}>
-					{error.length > 0 && <span>{error}</span>}
-				</div>
+			<div className={styles.contFormTitle}>
+				<h1>Login</h1>
 
-				<div>
-					<Link style={{ color: 'black' }} to='/register'>
-						<span>Do you not have an account?</span>
-					</Link>
-					<button className={styles.btn} disabled={loading} type='submit'>
-						Log In
-					</button>
-				</div>
-			</form>
+				<form
+					onSubmit={(e) => {
+						void handleSubmit(e);
+					}}
+					className={styles.formLogin}>
+					<div>
+						<label className={styles.label}>Email: </label>
+						<input
+							autoFocus
+							onChange={(e) => {
+								setError('');
+								handleChange(e);
+							}}
+							className={styles.input}
+							type='email'
+							name='email'
+						/>
+					</div>
+					<div>
+						<label className={styles.label}>Password: </label>
+						<input
+							onChange={(e) => {
+								setError('');
+								handleChange(e);
+							}}
+							className={styles.input}
+							type='password'
+							name='password'
+						/>
+					</div>
+					<div className={styles.contError}>
+						{error.length > 0 && <span>{error}</span>}
+					</div>
+
+					<div>
+						<Link style={{ color: 'black' }} to='/register'>
+							<span>Do you not have an account?</span>
+						</Link>
+						<button className={styles.btn} disabled={loading} type='submit'>
+							Log In
+						</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 };
