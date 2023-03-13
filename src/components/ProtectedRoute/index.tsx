@@ -20,12 +20,6 @@ const ProtectedRoute = ({ children }: PropsChildren): React.ReactElement => {
 					</div>
 					<h1>Loading...</h1>
 				</div>
-				{/* <div className={styles.contLoaderCol}>
-					<div className={styles.contSpinner}>
-						<div className={styles.loadSpinner}></div>
-					</div>
-					<h1>Cargando...</h1>
-				</div> */}
 			</div>
 		);
 	}

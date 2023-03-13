@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import { type SliderContent } from '../../models/Profile.model';
 
@@ -7,6 +6,7 @@ import { GiRollingDices } from 'react-icons/gi';
 import { MdVideogameAsset } from 'react-icons/md';
 import { GoBook } from 'react-icons/go';
 import { TfiComments } from 'react-icons/tfi';
+import { motion } from 'framer-motion';
 
 import styles from './index.module.css';
 import SliderItem from '../SliderItem';
@@ -78,7 +78,7 @@ const Slider: React.FC = () => {
 	}, []);
 
 	return (
-		<motion.div ref={refCarousel} className={styles.carousel}>
+		<div ref={refCarousel} className={styles.carousel}>
 			<motion.div
 				drag='x'
 				dragConstraints={{ right: 0, left: -width }}
@@ -94,7 +94,7 @@ const Slider: React.FC = () => {
 					);
 				})}
 			</motion.div>
-		</motion.div>
+		</div>
 	);
 };
 
