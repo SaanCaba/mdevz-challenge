@@ -15,7 +15,6 @@ import { type UserRegisterData, type AuthUser } from '../models/AuthUser.model';
 import { type Coins, type DataCategories } from '../models/Profile.model';
 import { getOnlyCoins } from '../utils/getOnlyCoins';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { getUserInfo } from '../utils/getUserInfo';
 import { convertMessageLogin } from '../utils/handleErrorLogin';
 import {
@@ -23,7 +22,7 @@ import {
 	convertMessageRegisterUserDB,
 } from '../utils/handleErrorRegister';
 
-export const Context = createContext<AuthUser>({
+export const ContextApp = createContext<AuthUser>({
 	userSession: null,
 	userProfileData: null,
 	signup() {},
@@ -31,12 +30,13 @@ export const Context = createContext<AuthUser>({
 	logout() {},
 	loading: false,
 	coinsData: [],
-	coinSelected: {},
-	getCoinById() {},
+	getCoinById() {
+		return null;
+	},
 });
 
 export const useAuth = (): AuthUser => {
-	const user = useContext<AuthUser>(Context);
+	const user = useContext<AuthUser>(ContextApp);
 	return user;
 };
 
@@ -50,10 +50,6 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 	const [userProfileData, setUserProfileData] = useState<null | DocumentData>(
 		null
 	);
-
-	const [coinSelected, setCoinsSelected] = useState<
-		Coins | Record<string, unknown>
-	>({});
 
 	const [loading, setLoading] = useState<boolean>(true);
 
@@ -118,12 +114,13 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 		localStorage.removeItem('user_token');
 	};
 
-	const getCoinById = (id: string): void => {
+	const getCoinById = (id: string): Coins | null => {
 		const allCoins = getOnlyCoins();
 		const coin = allCoins.find((el) => el.id === Number(id));
-		if (coin !== undefined) {
-			setCoinsSelected(coin);
+		if (coin === undefined) {
+			return null;
 		}
+		return coin;
 	};
 
 	useEffect(() => {
@@ -143,7 +140,7 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 	}, [userSession]);
 
 	return (
-		<Context.Provider
+		<ContextApp.Provider
 			value={{
 				userSession,
 				userProfileData,
@@ -152,10 +149,9 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 				logout,
 				loading,
 				coinsData,
-				coinSelected,
 				getCoinById,
 			}}>
 			{children}
-		</Context.Provider>
+		</ContextApp.Provider>
 	);
 }

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 import { BsArrowLeft } from 'react-icons/bs';
 import { FiUpload } from 'react-icons/fi';
@@ -7,13 +7,20 @@ import { TbTargetArrow } from 'react-icons/tb';
 import { RiFlashlightFill } from 'react-icons/ri';
 
 import styles from './index.module.css';
+import { type Coins } from '../../models/Profile.model';
 
 const ProfileCoin: React.FC = () => {
 	const { id } = useParams();
-	const { coinSelected, getCoinById } = useAuth();
-	useEffect(() => {
+	const { getCoinById } = useAuth();
+	const navigation = useNavigate();
+	const [coinSelected, setSelected] = useState<null | Coins>();
+	useEffect((): any => {
 		if (id !== undefined) {
-			getCoinById(id);
+			const coin = getCoinById(id);
+			setSelected(coin);
+			if (coin === null) {
+				return navigation('/profile');
+			}
 		}
 	}, []);
 	return (
@@ -33,7 +40,7 @@ const ProfileCoin: React.FC = () => {
 				<section className={styles.sectionImg}>
 					<img
 						className={styles.imgCoin}
-						src={coinSelected.img}
+						src={coinSelected?.img}
 						alt='image coin'
 					/>
 				</section>
@@ -42,10 +49,10 @@ const ProfileCoin: React.FC = () => {
 					<div className={styles.infoCoin}>
 						<div className={styles.infoCoinBox}>
 							<span className={styles.irlaName} style={{ fontWeight: 'bold' }}>
-								{coinSelected.irlaName}
+								{coinSelected?.irlaName}
 							</span>
 							<span style={{ fontWeight: 'bold' }}>
-								<RiFlashlightFill color='#fcd305' /> {coinSelected.exp}
+								<RiFlashlightFill color='#fcd305' /> {coinSelected?.exp}
 							</span>
 							<div>
 								<span>Completed: </span>{' '}

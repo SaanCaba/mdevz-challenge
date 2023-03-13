@@ -7,11 +7,10 @@ export interface AuthUser{
     signup: (user:UserRegisterData) => Promise<string | void> | void
     login: (email:string, password:string) => Promise<string | void> | void
     logout:() => Promise<void> | void
-    getCoinById: (id:string) => void
+    getCoinById: (id:string) => Coins | null
     userProfileData: DocumentData | null
     loading: boolean
     coinsData: [] | DataCategories[]
-    coinSelected: Record<string, any> | Coins
 }
 
 export interface UserRegisterData{
