@@ -16,7 +16,6 @@ const ProfileCoin: React.FC = () => {
 			getCoinById(id);
 		}
 	}, []);
-	console.log(coinSelected);
 	return (
 		<div className={styles.contProfileMedalView}>
 			<header className={styles.header}>
@@ -59,7 +58,7 @@ const ProfileCoin: React.FC = () => {
 						</button>
 						<hr />
 						<div className={styles.textMainCoin}>
-							<span>The coins of the World</span>
+							<span>The coins of World</span>
 						</div>
 						<div className={styles.contDescription}>
 							<p>

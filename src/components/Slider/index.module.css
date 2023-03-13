@@ -1,7 +1,8 @@
 .carousel {
 	cursor: grab;
 	overflow: hidden;
-	background-color: rgb(247, 247, 247);
+	border-bottom: 0.4px solid rgb(247, 247, 247);
+	border-top: 0.4px solid rgb(247, 247, 247);
 }
 
 .innerCarousel {

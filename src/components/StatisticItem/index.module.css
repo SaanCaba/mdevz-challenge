@@ -25,7 +25,7 @@
 }
 
 .content {
-	font-size: 12px;
+	font-size: 11px;
 }
 @media only screen and (min-width: 768px) {
 	.contStatistics {
@@ -37,7 +37,7 @@
 		font-size: 17px;
 	}
 	.content {
-		font-size: 14px;
+		font-size: 15px;
 	}
 }
 

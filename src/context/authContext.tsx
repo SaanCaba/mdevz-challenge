@@ -1,3 +1,4 @@
+import { FirebaseError } from 'firebase/app';
 import {
 	createUserWithEmailAndPassword,
 	onAuthStateChanged,
@@ -21,6 +22,7 @@ import {
 	convertMessageRegister,
 	convertMessageRegisterUserDB,
 } from '../utils/handleErrorRegister';
+
 export const Context = createContext<AuthUser>({
 	userSession: null,
 	userProfileData: null,
@@ -44,14 +46,19 @@ interface Props {
 
 export function AuthProvider({ children }: Props): React.ReactElement {
 	const [userSession, setUserSession] = useState<null | User>(null);
+
 	const [userProfileData, setUserProfileData] = useState<null | DocumentData>(
 		null
 	);
+
 	const [coinSelected, setCoinsSelected] = useState<
 		Coins | Record<string, unknown>
 	>({});
+
 	const [loading, setLoading] = useState<boolean>(true);
+
 	const [coinsData] = useState<DataCategories[]>(dataCategories);
+
 	const signup = async (user: UserRegisterData): Promise<void | string> => {
 		// en response.proactiveRefresh.user.uid está el id del usuario guardado en firebase.
 		try {
@@ -77,10 +84,12 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 			};
 			const colRef = collection(db, 'users');
 			await addDoc(colRef, userDb);
-		} catch (error: any) {
+		} catch (error) {
 			// capturamos el mensaje de error de Firebase (email, password)
-			const errMessage = convertMessageRegister(error.code);
-			return errMessage;
+			if (error instanceof FirebaseError) {
+				const errMessage = convertMessageRegister(error.code);
+				return errMessage;
+			}
 		}
 	};
 
@@ -96,13 +105,15 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 			);
 			const acessToken = await userCredentials.user.getIdToken();
 			localStorage.setItem('user_token', acessToken);
-		} catch (error: any) {
-			const errMessage = convertMessageLogin(error.code);
-			return errMessage;
+		} catch (error) {
+			if (error instanceof FirebaseError) {
+				const errMessage = convertMessageLogin(error.code);
+				return errMessage;
+			}
 		}
 	};
 
-	const logout = async (): Promise<any> => {
+	const logout = async (): Promise<void> => {
 		await signOut(auth);
 		localStorage.removeItem('user_token');
 	};
@@ -117,10 +128,10 @@ export function AuthProvider({ children }: Props): React.ReactElement {
 
 	useEffect(() => {
 		onAuthStateChanged(auth, (currentUser) => {
-			// if (currentUser === null) {
-			// 	setLoading(false);
-			// 	return;
-			// }
+			if (currentUser === null) {
+				setLoading(false);
+				return;
+			}
 			setUserSession(currentUser);
 			void (async () => {
 				(await getUserInfo(currentUser?.uid)).forEach((doc) => {

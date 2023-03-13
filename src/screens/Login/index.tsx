@@ -16,7 +16,6 @@ const Login: React.FC = () => {
 
 	const navigate = useNavigate();
 
-	// console.log('user', auth.user);
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		setUser({
 			...user,
@@ -35,7 +34,6 @@ const Login: React.FC = () => {
 				user.password
 			);
 			if (errorResponse !== undefined) {
-				console.log(errorResponse);
 				return setError(errorResponse);
 			}
 			navigate('/profile');

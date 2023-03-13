@@ -1,7 +1,6 @@
 type ErrorMessage = string
 
 export function convertMessageLogin(code:string) : ErrorMessage{
-    console.log(code)
      switch(code){
        case 'auth/user-disabled': {
          return 'Sorry your user is disabled.';

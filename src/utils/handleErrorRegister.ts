@@ -1,7 +1,8 @@
+import { type UserRegisterData } from "../models/AuthUser.model";
+
 type ErrorMessage = string
 
 export function convertMessageRegister(code:string) : ErrorMessage{
-    // console.log(code)
      switch(code){
        case 'auth/user-disabled': {
          return 'Sorry your user is disabled.';
@@ -21,8 +22,7 @@ export function convertMessageRegister(code:string) : ErrorMessage{
      }
    }
 
-export function convertMessageRegisterUserDB(user:any): ErrorMessage{
-  console.log(user) 
+export function convertMessageRegisterUserDB(user:UserRegisterData): ErrorMessage{
   if(user.firstName.length === 0){
       return 'Sorry, the First Name field is empty.'
     }

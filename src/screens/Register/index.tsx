@@ -31,19 +31,19 @@ const Register: React.FC = () => {
 
 	const handleSubmit = async (
 		e: React.FormEvent<HTMLFormElement>
-	): Promise<any> => {
+	): Promise<void | string> => {
 		e.preventDefault();
 		try {
 			setLoading(true);
 			const errorResponse: string | void = await auth.signup(user);
 			if (errorResponse !== undefined) {
-				console.log('err', errorResponse);
 				return setError(errorResponse);
 			}
-			// console.log(response);
 			navigate('/login');
-		} catch (error: any) {
-			console.log(error.message);
+		} catch (error) {
+			if (error instanceof Error) {
+				console.log(error.message);
+			}
 		} finally {
 			setLoading(false);
 		}
@@ -61,6 +61,7 @@ const Register: React.FC = () => {
 					<div className={styles.contInput}>
 						<label>First Name:</label>
 						<input
+							autoFocus
 							onChange={(e) => {
 								setError('');
 								handleChange(e);
