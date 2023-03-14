@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# MDEVZ CHALLENGE - SANTIAGO CABALLERO.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hola a todos, esta vez les traigo una aplicación desarrollada en React y TypeScript. Es una aplicación sencilla donde se visualiza al principio un login y un sistema de registro, donde si no tienes un usuario para logearte puedes llenar datos y tener tu propio usuario.
+La autentificación está hecha con Firebase y el uso de Firestore para guardar información del usuario.
 
-## Available Scripts
 
-In the project directory, you can run:
+# FUNCIONES PRINCIPALES
 
-### `npm start`
+- Los usuarios son autentificados mediante Firebase usando su métodos de logueo y registro.
+- El usuario registrado es guardado con Firestore, para poder guardar su país de origen, nombre y apellido.
+- La renderización del perfil está basada en la enviada por mail, tratando de igualar al máximo la imagen dada.
+- La aplicación tiene diseñadas 3 diferentes vistas, mobile, tablet y para la web.
+- El estado de la aplicación es manejado con el hook useContext.
+- Hay rutas protegidas, para poder acceder a la ruta profile y a la ruta del detalle de la moneda, hace falta estar autentificado sino, el usuario será redirigido a la pantalla de login.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# DEPENDENCIAS UTILIZADAS
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- React Router DOM, para llevar el routing de la aplicación, protección de rutas y el uso de rutas dinámicas para mostrar las diferentes monedas del usuario.
+- React Icons, se usó para renderizar los íconos que se pedían.
+- Country State City, se implementó para que en el formulario de registro se visualizen todos los países disponibles.
+- Firebase, como se dijo anteriormente se usó para la autentificación de los usuarios y para el registro de los mismos usando FireStore y Firebase Auth para la autentificación.
+- Typescript, para manejar el tipado de la aplicación y ayudarnos a la hora de desarrollar.
+- Uso de Eslint y prettier para tener bien identado nuestro código y, para tener los menores errores posibles.
+- Framer Motion, fue utilizado para el slider que se encuentra en el perfil del usuario.
 
-### `npm test`
+# Deploy
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Link: https://mdevz-challenge.vercel.app/
 
-### `npm run build`
+# ¿Cómo puedo usar la aplicación localmente?
+Seguir estos pasos:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Clonar repositorio
+- npm install
+- npm run start
