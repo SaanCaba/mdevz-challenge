@@ -32,19 +32,19 @@ const Profile: React.FC = () => {
 					</div>
 					<div className={styles.contFullName}>
 						<span className={styles.fullName}>
-							{userProfileData?.first_name} {userProfileData?.last_name}{' '}
+							{userProfileData?.first_name} {userProfileData?.last_name}
 						</span>
 						<MdVerified color='#57a9fa' />
 					</div>
 
 					<div className={styles.contLocationInfo}>
-						<IoLocationSharp size={17} color='#ccb883' />{' '}
+						<IoLocationSharp size={17} color='#ccb883' />
 						<span className={styles.countryText}>
 							{userProfileData?.country}
 						</span>
 					</div>
 					<div className={styles.contTarget}>
-						<TbTargetArrow color='#11b981' size={20} />{' '}
+						<TbTargetArrow color='#11b981' size={20} />
 						<span className={styles.infoProfileText}>Tracking 13 IRLAs</span>
 					</div>
 				</section>
